@@ -28,13 +28,13 @@ fileNames.forEach((fileName) => {
       id,
       label,
       student_name: student,
-      session_id: session
+      student_id: session
     })
 
     const paths = drawings[label]
     fs.writeFileSync(`${constants.JSON_DIR}/${id}.json`, JSON.stringify(paths))
 
-    generateImageFile(`${constants.IMG_DIR}/${id}.png`, paths)
+    // generateImageFile(`${constants.IMG_DIR}/${id}.png`, paths)
 
     utils.printProgress(id, (fileNames.length * 8))
     id ++
@@ -42,4 +42,4 @@ fileNames.forEach((fileName) => {
 })
 
 fs.writeFileSync(constants.SAMPLES, JSON.stringify(samples))
-fs.writeFileSync(constants.SAMPLES_JS, `const samples = ${JSON.stringify(samples)};`)
+// fs.writeFileSync(constants.SAMPLES_JS, `const samples = ${JSON.stringify(samples)};`)
